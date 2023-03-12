@@ -126,7 +126,7 @@ apps=(
   gimp
   inkscape
   krita
-  messenger
+#  messenger
   microsoft-excel
   microsoft-powerpoint
   microsoft-word
@@ -147,7 +147,6 @@ do
   brew install --cask --appdir="/Applications" ${appName}
 done
 
-
 # brew --cask alfred link
 
 brew cleanup
@@ -167,31 +166,8 @@ do
   brew install --appdir="/Applications" ${appName}
 done
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 pyenv install -vf 3
-pyenv local 3
+# pyenv local 3
 pyenv global 3
 
 # pyenv install -vf 2
