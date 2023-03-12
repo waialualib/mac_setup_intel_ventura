@@ -171,7 +171,7 @@ pyenv install -vf 3
 pyenv global 3
 
 # pyenv install -vf 2
-# pyenv local 2
+# # pyenv local 2
 # pyenv local 2
 
 
