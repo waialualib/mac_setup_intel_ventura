@@ -420,6 +420,7 @@ brew install lotyp/formulae/dockutil
 dockutil --version
 
 
+./dockSetup.sh
 
 
 
