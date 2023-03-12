@@ -76,7 +76,7 @@ ${USER}/.zsh-theme
 
 
 
-
+# https://proxyman.io/posts/2019-10-26-Alternatives-for-charles-proxy-and-wireshark
 
 apps=(
 #  alfred
@@ -117,7 +117,7 @@ apps=(
 #  qlmarkdown  
 #  qlstephen
 #  suspicious-package 
-  adguard
+#  adguard
   anaconda
   android-studio
   dbeaver-community
