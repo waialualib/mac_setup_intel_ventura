@@ -4,17 +4,16 @@ echo 'Your WAN IP Address is: '$(dig +short txt ch whoami.cloudflare @1.0.0.1)
 osascript -e 'tell application "System Preferences" to quit'
 echo 'Your password is required to run commands as root...'
 sudo -v
-
-#dig +short txt ch whoami.cloudflare @1.0.0.1
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 ### is this needed? https://github.com/kevinSuttle/macOS-Defaults
 # Keep-alive: update existing `sudo` time stamp until `.macos` has finished
 ## while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 
-
-
 echo 'These items cannot be automated as of macOS Monterey'
+echo 'Please install XCode from the Apple Store now.'
+read FOO
 echo 'System Settings -> Trackpad -> Force Click and haptic feedback: OFF'
 echo 'System Settings -> Sharing: ALL OFF'
 echo 'System Settings -> Airdrop & Handoff -> Allow Handoff: OFF'
@@ -34,7 +33,8 @@ sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
 
 # https://www.intego.com/mac-security-blog/unlock-the-macos-docks-hidden-secrets-in-terminal/
 
-
+# MORE education?
+# https://gist.github.com/ChristopherA/98628f8cd00c94f11ee6035d53b0d3c6
 
 
 
@@ -42,28 +42,47 @@ sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
 # Set computer name (as done via System Preferences → Sharing)
 sudo scutil --set ComputerName home
 sudo scutil --set HostName home
-sudo scutil --set LocalHostName home.local
+sudo scutil --set LocalHostName home
 #sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string home.share
 dscacheutil -flushcache
 
 
 # Disable the sound effects on boot
-sudo nvram SystemAudioVolume=" "
-
+#sudo nvram SystemAudioVolume=" "
+# https://apple.stackexchange.com/questions/431910/how-to-permanently-disable-the-mac-startup-sound
+sudo nvram StartupMute=%01
 
 
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+#defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+# defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
+defaults write com.apple.LaunchServices LSQuarantine -bool false
+# /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
+defaults write NSGlobalDomain NSTextShowsControlCharacters -bool true
+defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false
+defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
+#defaults write com.apple.CrashReporter DialogType -string "none"
+defaults write com.apple.helpviewer DevMode -bool true
+# sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
-
-
-
-
-
-
-
-
-
-
+# Disable Notification Center and remove the menu bar icon
+# launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
+defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
+defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
 
 
@@ -92,15 +111,61 @@ defaults write NSGlobalDomain com.apple.mouse.forceClick -bool false
 defaults write com.apple.dock "orientation" -string "right"
 defaults write com.apple.dock "tilesize" -int "36" 
 defaults write com.apple.dock "show-recents" -bool "false" 
-defaults write com.apple.dock "static-only" -bool "true"
+defaults write com.apple.dock "static-only" -bool "false"
 killall Dock
 #### DOCK TODO
 # defaults read com.apple.Dock
 defaults write com.apple.TextEdit "RichText" -bool "false"
 killall TextEdit
-defaults write com.apple.menuextra.clock "DateFormat" -string "\"EEE dd MMM HH:mm:ss\"" 
-defaults write com.apple.menuextra.clock "FlashDateSeparators" -bool "true"
+
+
+defaults write com.apple.menuextra.clock "FlashDateSeparators" -bool "FALSE"
+defaults write com.apple.menuextra.clock "Show24Hour" -bool "TRUE"
+defaults write com.apple.menuextra.clock "ShowAMPM" -bool "FALSE"
+defaults write com.apple.menuextra.clock "ShowDate" -bool "TRUE"
+defaults write com.apple.menuextra.clock "ShowDayOfWeek" -bool "TRUE"
+defaults write com.apple.menuextra.clock "ShowSeconds" -bool "TRUE"
+
 killall SystemUIServer
+
+
+
+
+
+
+
+
+
+
+
+
+defaults write com.apple.terminal "Startup Window Settings" Pro
+defaults write com.apple.terminal "Default Window Settings" Pro
+
+# adapted from 
+# https://github.com/bramus/freshinstall/blob/master/steps/1.macos-settings.sh
+defaults read com.apple.Terminal
+/usr/libexec/PlistBuddy -c "Delete 'Window Settings':Pro:CursorBlink" ~/Library/Preferences/com.apple.Terminal.plist > /dev/null 2>&1
+/usr/libexec/PlistBuddy -c "Add 'Window Settings':Pro:CursorBlink bool true" ~/Library/Preferences/com.apple.Terminal.plist         
+
+/usr/libexec/PlistBuddy -c "Delete 'Window Settings':Pro:CursorType" ~/Library/Preferences/com.apple.Terminal.plist > /dev/null 2>&1
+/usr/libexec/PlistBuddy -c "Add 'Window Settings':Pro:CursorType integer 1" ~/Library/Preferences/com.apple.Terminal.plist         
+
+
+# defaults read com.apple.preference.trackpad
+### THIS WORKS, but requires a reboot
+### TODO: make this work without needing to reboot
+# defaults write com.apple.preference.trackpad ForceClickSavedState -int 0 &&
+# defaults write com.apple.preference.trackpad ForceClick -int 0 &&
+defaults write com.apple.AppleMultitouchTrackpad "ActuateDetents" -int 0 &&
+defaults write com.apple.AppleMultitouchTrackpad "ForceSuppressed" -int 1
+
+# /usr/libexec/PlistBuddy -c "Delete ActuateDetents" ~/Library/Preferences/com.apple.AppleMultitouchTrackpad  &&
+# /usr/libexec/PlistBuddy -c "Add ActuateDetents bool true" ~/Library/Preferences/com.apple.AppleMultitouchTrackpad &&
+# /usr/libexec/PlistBuddy -c "Delete ForceSuppressed" ~/Library/Preferences/com.apple.AppleMultitouchTrackpad  &&
+# /usr/libexec/PlistBuddy -c "Add ForceSuppressed bool false" ~/Library/Preferences/com.apple.AppleMultitouchTrackpad
+
+
 
 ####################### SSH
 if [ ! -f ~/.ssh/id_rsa ]; then
@@ -268,7 +333,6 @@ appsNoCask=(
   pyenv
   erlang
   elixir
-  
 )
 
 
@@ -278,9 +342,37 @@ do
   brew install --appdir="/Applications" ${appName}
 done
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 pyenv install -vf 3
 pyenv local 3
 pyenv global 3
+
+# pyenv install -vf 2
+# pyenv local 2
+# pyenv local 2
+
 
 # https://github.com/pyenv/pyenv#installation
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
@@ -312,6 +404,24 @@ echo 'Install R and link to Jupyter per: https://www.chrisjmendez.com/2018/12/04
 
 
 brew tap homebrew/cask-fonts 
+brew install --cask font-source-code-pro
+
+
+
+
+
+
+
+
+
+
+brew tap lotyp/homebrew-formulae
+brew install lotyp/formulae/dockutil
+dockutil --version
+
+
+
+
 
 #SnapAPI
 # Transporter - XCODE UPLOAD THING
