@@ -36,9 +36,6 @@ sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
 # MORE education?
 # https://gist.github.com/ChristopherA/98628f8cd00c94f11ee6035d53b0d3c6
 
-
-
-
 # Set computer name (as done via System Preferences → Sharing)
 sudo scutil --set ComputerName home
 sudo scutil --set HostName home
@@ -51,7 +48,6 @@ dscacheutil -flushcache
 #sudo nvram SystemAudioVolume=" "
 # https://apple.stackexchange.com/questions/431910/how-to-permanently-disable-the-mac-startup-sound
 sudo nvram StartupMute=%01
-
 
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 #defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
@@ -83,13 +79,6 @@ defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 defaults write NSGlobalDomain KeyRepeat -int 1
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
-
-
-
-
-
-
-
 
 # https://git.herrbischoff.com/awesome-macos-command-line/about/
 sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "Welcome to your MBP"
@@ -128,17 +117,6 @@ defaults write com.apple.menuextra.clock "ShowSeconds" -bool "TRUE"
 
 killall SystemUIServer
 
-
-
-
-
-
-
-
-
-
-
-
 defaults write com.apple.terminal "Startup Window Settings" Pro
 defaults write com.apple.terminal "Default Window Settings" Pro
 
@@ -165,7 +143,10 @@ defaults write com.apple.AppleMultitouchTrackpad "ForceSuppressed" -int 1
 # /usr/libexec/PlistBuddy -c "Delete ForceSuppressed" ~/Library/Preferences/com.apple.AppleMultitouchTrackpad  &&
 # /usr/libexec/PlistBuddy -c "Add ForceSuppressed bool false" ~/Library/Preferences/com.apple.AppleMultitouchTrackpad
 
-
+## more reading
+# https://mosen.github.io/profiledocs/index.html
+# https://developer.apple.com/documentation/devicemanagement/dock
+# https://stackoverflow.com/questions/49214368/using-applescript-to-modify-settings-system-preferences
 
 ####################### SSH
 if [ ! -f ~/.ssh/id_rsa ]; then
@@ -435,16 +416,10 @@ dockutil --version
 ## PYTHON
 #  node??
 # yarn
-# Erlang?
-#Elixir/Phoenix?
-
 
 echo 'Installing Phoenix Web Framework...'
 mix local.hex --force
 
-
 ### TODO: more stuff
 ### https://github.com/thomaspoignant/mac-dev-setup/blob/master/src/mac-dev-setup.sh
 ### https://github.com/donnemartin/dev-setup#osxprepsh-script
-
-
