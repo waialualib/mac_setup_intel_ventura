@@ -278,7 +278,7 @@ do
   brew install --appdir="/Applications" ${appName}
 done
 
-pyenv install -f 3
+pyenv install -vf 3
 pyenv local 3
 pyenv global 3
 
