@@ -9,6 +9,9 @@ read FOO
 # echo 'Press [Enter to continue...'
 # read FOO
 # sudo find /Users/{$userName} -name ".DS_Store" -depth -exec rm {} \;
+# OR
+# cd /Users/{$userName}
+# find . -name '*.DS_Store' -type f -delete
 
 # https://superuser.com/questions/472038/how-can-i-enable-the-firewall-via-command-line-on-mac-os-x
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
