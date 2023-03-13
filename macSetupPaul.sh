@@ -7,7 +7,7 @@ sudo -v
 ### is this needed? https://github.com/kevinSuttle/macOS-Defaultswhile true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 echo 'These items cannot be automated as of macOS Monterey'
-echo 'Please install XCode from the Apple Store now.'
+echo 'Please install XCode from the App Store now.'
 read FOO
 echo 'System Settings -> Sharing: ALL OFF'
 echo 'System Settings -> Airdrop & Handoff -> Allow Handoff: OFF'

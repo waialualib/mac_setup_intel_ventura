@@ -6,38 +6,18 @@ echo 'Did you add keys to Github and Bitbucket?'
 echo 'Press [Enter] to continue...'
 read FOO
 
+echo 'Making directory and CDing into directory github/waialualib'
 mkdir -p /Users/${userName}/projects/github/waialualib
-cd ~/projects/github/waialualib
-githubRepos=(
-    "git@github.com:waialualib/boonyah-backend.git"
-    # ""
-    # ""
-)
-for repo in ${githubRepos}
-do
-  echo 'Cloning repo from GitHub: '${repo}
-  git clone ${repo}
-done
+cd /Users/${userName}/projects/github/waialualib
+git clone git@github.com:waialualib/boonyah-backend.git 
 
+echo 'Making directory and CDing into directory bitbucket/drkeithwebb'
 mkdir -p /Users/${userName}/projects/bitbucket/drkeithwebb
 cd /Users/${userName}/projects/bitbucket/drkeithwebb
-bitbucketRepos=(
-    "git@bitbucket.org:drkeithwebb/boonyah.git"
-    "git@bitbucket.org:drkeithwebb/android-version.git"
-)
-for repo in ${bitbucketRepos}
-do
-  echo 'Cloning repo from BitBucket: '${repo}
-  git clone ${repo}
-done
+git clone git@bitbucket.org:drkeithwebb/boonyah.git
+git clone git@bitbucket.org:drkeithwebb/android-version.git
 
-mkdir -p /Users/{$userName}/projects/bitbucket/bitwkspace
-cd /Users/{$userName}/projects/bitbucket/bitwkspace
-bitbucketRepos=(
-    "git@bitbucket.org:bitwkspace/testprivaterepo.git"
-)
-for repo in ${bitbucketRepos}
-do
-  echo 'Cloning repo from BitBucket: '${repo}
-  git clone ${repo}
-done
+echo 'Making directory and CDing into directory bitbucket/bitwkspace'
+mkdir -p /Users/${userName}/projects/bitbucket/bitwkspace
+cd /Users/${userName}/projects/bitbucket/bitwkspace
+git clone git@bitbucket.org:bitwkspace/testprivaterepo.git
