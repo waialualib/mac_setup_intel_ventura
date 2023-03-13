@@ -5,6 +5,10 @@ echo 'By continuing, your username "'${userName}'" will be used for the Computer
 echo 'Press [Enter] to continue...'
 read FOO
 
+# echo 'Cleaning up .DS_Store in /Users/'${userName}'/ ...'
+# echo 'Press [Enter to continue...'
+# read FOO
+# sudo find /Users/{$userName} -name ".DS_Store" -depth -exec rm {} \;
 
 # https://superuser.com/questions/472038/how-can-i-enable-the-firewall-via-command-line-on-mac-os-x
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
@@ -75,8 +79,6 @@ defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
 # https://lupin3000.github.io/macOS/defaults/
 defaults write com.apple.Dock orientation -string right
-
-defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 
 # https://macos-defaults.com/safari/showfullurlinsmartsearchfield.html#set-to-true
 
@@ -157,11 +159,11 @@ defaults write com.apple.finder DisableAllAnimations -bool true
 # defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
 # defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 
-# Finder: show hidden files by default
-defaults write com.apple.finder AppleShowAllFiles -bool true
+# Finder: show/hide hidden files by default
+defaults write com.apple.finder AppleShowAllFiles -bool false
 
 # Finder: show all filename extensions
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+defaults write NSGlobalDomain AppleShowAllExtensions -bool false
 
 # Finder: show status bar
 defaults write com.apple.finder ShowStatusBar -bool true
@@ -226,7 +228,7 @@ defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
 
 # Use list view in all Finder windows by default
 # Four-letter codes for the other view modes: `icnv`, `clmv`, `glyv`
-# defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
 # Disable the warning before emptying the Trash
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
