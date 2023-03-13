@@ -14,6 +14,7 @@ echo 'System Settings -> Airdrop & Handoff -> Allow Handoff: OFF'
 echo 'System Settings -> Airdrop & Handoff -> Airdrop: No One'
 echo 'System Settings -> Airdrop & Handoff -> Airplay Receiver: OFF'
 echo 'Finder -> Settings -> Sidebar -> Favorites -> click "home"'
+echo 'Messages -> Settings -> Shared with you -> turn off'
 echo 'Are those done? Press [Enter] to continue...'
 read FOO
 
