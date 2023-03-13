@@ -49,3 +49,5 @@ mix local.hex --force
 ### TODO: more stuff
 ### https://github.com/thomaspoignant/mac-dev-setup/blob/master/src/mac-dev-setup.sh
 ### https://github.com/donnemartin/dev-setup#osxprepsh-script
+
+./projectSetup.sh
