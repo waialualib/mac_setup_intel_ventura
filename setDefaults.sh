@@ -1,5 +1,11 @@
 #!/bin/zsh
 
+userName=`whoami`
+echo 'By continuing, your username "'${userName}'" will be used for the Computer and Host Names.'
+echo 'Press [Enter] to continue...'
+read FOO
+
+
 # https://superuser.com/questions/472038/how-can-i-enable-the-firewall-via-command-line-on-mac-os-x
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
 
@@ -15,9 +21,9 @@ sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
 # https://gist.github.com/ChristopherA/98628f8cd00c94f11ee6035d53b0d3c6
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName home
-sudo scutil --set HostName home
-sudo scutil --set LocalHostName home
+sudo scutil --set ComputerName ${userName}
+sudo scutil --set HostName ${userName}
+sudo scutil --set LocalHostName ${userName}
 #sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string home.share
 dscacheutil -flushcache
 

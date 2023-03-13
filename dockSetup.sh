@@ -3,12 +3,14 @@ appsInDock=(
   "/System/Applications/Messages"
   "/System/Applications/FaceTime"
   "/Applications/Element"
+  "/Applications/Whatsapp"
   #"/Applications/Messenger"
   "/System/Applications/App Store"
   "/Applications/Safari"
   "/Applications/Firefox"
   "/Applications/Google Chrome"
   # "/Applications/Anaconda-Navigator"
+  "/Applications/VirtualBox"
   "/System/Applications/Utilities/Terminal"
   "/Applications/XCode"
   "/Applications/Visual Studio Code"
@@ -29,7 +31,6 @@ appsInDock=(
   "/System/Applications/Calculator"
   "/System/Applications/TextEdit"
   # "/Applications/AdGuard"
-  # "/Applications/VirtualBox"
 
 )
 

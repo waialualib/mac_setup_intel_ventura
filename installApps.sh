@@ -127,6 +127,7 @@ apps=(
   inkscape
   krita
 #  messenger
+  whatsapp
   microsoft-excel
   microsoft-powerpoint
   microsoft-word
@@ -143,7 +144,7 @@ echo "Installing apps with Brew Cask..."
 
 for appName in ${apps}
 do
-  echo 'Installing cask: ${appName}'
+  echo 'Installing cask: '${appName}
   brew install --cask --appdir="/Applications" ${appName}
 done
 
@@ -159,21 +160,25 @@ appsNoCask=(
   elixir
 )
 
-
 for appName in ${appsNoCask}
 do
-  echo 'Installing apps with Brew...'
+  echo 'Installing app '${appName}' with Brew...'
   brew install --appdir="/Applications" ${appName}
 done
 
-pyenv install -vf 3
-# pyenv local 3
-pyenv global 3
+if [ ! -f ~/.pyenv/version ]; then
+  echo 'Installing latest Python 3 via pyenv.'
+  pyenv install -vf 3
+  echo 'Setting latest Python 3 to global via pyenv.'
+  pyenv global 3
+  # pyenv local 3
+else ## TODO: test if 3 is installed and set
+  echo "~/.pyenv/version exists." >&2
+fi
 
 # pyenv install -vf 2
 # # pyenv local 2
 # pyenv local 2
-
 
 # https://github.com/pyenv/pyenv#installation
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
