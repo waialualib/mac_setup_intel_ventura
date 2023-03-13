@@ -27,7 +27,7 @@ if [ ! -f ~/.ssh/id_rsa ]; then
   echo "Creating an RSA SSH key of length 4096 in ~/.ssh"   
   ssh-keygen -t rsa -b 4096
 fi
-echo "Please add your public key to your Github: \n"
+echo "Please add your public key to your Github and Bitbucket accounts: \n"
 cat ~/.ssh/id_rsa.pub
 echo "https://github.com/account/ssh \n"
 echo 'Press [Enter] to continue...'
