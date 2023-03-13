@@ -8,6 +8,7 @@ sudo -v
 
 echo 'These items cannot be automated as of macOS Monterey'
 echo 'Please install XCode from the App Store now.'
+echo 'Press [Enter] to continue...'
 read FOO
 echo 'System Settings -> Sharing: ALL OFF'
 echo 'System Settings -> Airdrop & Handoff -> Allow Handoff: OFF'
@@ -15,7 +16,8 @@ echo 'System Settings -> Airdrop & Handoff -> Airdrop: No One'
 echo 'System Settings -> Airdrop & Handoff -> Airplay Receiver: OFF'
 echo 'Finder -> Settings -> Sidebar -> Favorites -> click "home"'
 echo 'Messages -> Settings -> Shared with you -> turn off'
-echo 'Are those done? Press [Enter] to continue...'
+echo 'Are those done?'
+echo 'Press [Enter] to continue...'
 read FOO
 
 ./setDefaults.sh
@@ -28,7 +30,8 @@ fi
 echo "Please add your public key to your Github: \n"
 cat ~/.ssh/id_rsa.pub
 echo "https://github.com/account/ssh \n"
-read -p "Press [Enter] key once added"
+echo 'Press [Enter] to continue...'
+read FOO
 
 ./installApps.sh
 ./dockSetup.sh
