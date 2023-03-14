@@ -109,6 +109,9 @@ killall SystemUIServer
 defaults write com.apple.terminal "Startup Window Settings" Pro
 defaults write com.apple.terminal "Default Window Settings" Pro
 
+defaults write com.apple.terminal StringEncodings -array 4
+defaults write com.apple.terminal SecureKeyboardEntry -bool true
+
 # adapted from 
 # https://github.com/bramus/freshinstall/blob/master/steps/1.macos-settings.sh
 # defaults read com.apple.Terminal
