@@ -1,5 +1,7 @@
 #!/bin/zsh
+
 function install_casks {
+  # Install apps to /Applications, Default is: /Users/$user/Applications
   for appName in "$@"
   do
     echo 'Installing cask: '"$appName"
@@ -8,6 +10,7 @@ function install_casks {
 }
 
 function install_nocasks {
+  echo "Installing apps with Brew Cask..." 
   for appName in "$@"
   do
     echo 'Installing app '"$appName"' with Brew...'
@@ -18,7 +21,6 @@ function install_nocasks {
 USER=`whoami`
 echo 'Installing apps with user: '${USER}
 
-###################### XCode
 echo "Installing XCode Command Line Tools"
 xcode-select --install
 sudo xcodebuild -license accept
@@ -26,7 +28,6 @@ sudo xcodebuild -license accept
 echo "Checking if brew is installed..."
 which -s brew
 if [[ $? != 0 ]] ; then
-  # Install Homebrew
   echo "Installing homebrew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
@@ -35,45 +36,31 @@ brew update
 
 echo "Installing Git..."
 brew install git
-
 echo "Git config"
-
 git config --global user.name "Home Dev"
 git config --global user.email nshkrdotcom@nshkr.com
 
+appsNoCask=(
+  # git-extras
+  # legit
+  # git-flow
+  tree
+  wget
+  # trash
+  # node
+)
+install_nocasks $appsNoCask
 
-echo "Installing brew git utilities..."
-brew install git-extras 
-brew install legit
-brew install git-flow
-  
-echo "Installing other brew stuff..."
-brew install tree
-brew install wget
-brew install trash
-# brew install svn
-# brew install mackup
-# brew install node
-  
-
-
-#@TODO install our custom fonts and stuff
-  
+# echo "Grunting it up"
+# npm install -g grunt-cli
+#@TODO install our custom fonts
 echo "Cleaning up brew"
 brew cleanup
 
 ### TODO: dotfiles
-
-
 # git clone git@github.com:TODO/dotfiles.git .dotfiles
 # cd .dotfiles
 # sh symdotfiles
-
-# GET NODE INSTALLED FIRST
-brew install node
-
-# echo "Grunting it up"
-npm install -g grunt-cli
 
 # #Install Zsh & Oh My Zsh
 # # echo "Installing Oh My ZSH..."
@@ -82,8 +69,7 @@ npm install -g grunt-cli
 # # echo "Setting up Oh My Zsh theme..." 
 # #cd  /Users/home/.oh-my-zsh/themes
 # # curl 
-# #  https://gist.githubusercontent.com/bradp/a52fffd9cad1cd51edb7/raw/cb46de8e4c77beb7fad38c81dbddf531d9875c78/brad-muse.zsh-theme > 
-${USER}/.zsh-theme
+# #  https://gist.githubusercontent.com/bradp/a52fffd9cad1cd51edb7/raw/cb46de8e4c77beb7fad38c81dbddf531d9875c78/brad-muse.zsh-theme > ${USER}/.zsh-theme
 
 # echo "Setting up Zsh plugins..."
 # #cd ~/.oh-my-zsh/custom/plugins
@@ -94,17 +80,13 @@ ${USER}/.zsh-theme
 
 apps=(
 #  alfred
-  bartender
 #  bettertouchtool
-  cleanmymac
 #  cloud
 #  colloquy  
 #  cornerstone
 #  diffmerge
 #  dropbox
 #  filezilla
-  firefox
-  google-chrome
 #  harvest
 #  hipchat
 #  licecap
@@ -115,8 +97,6 @@ apps=(
 #  sourcetree
 #  steam
 #  spotify
-  vagrant
-  iterm2
 #  sublime-text2
 #  textexpander
 #  virtualbox
@@ -126,12 +106,20 @@ apps=(
 #  transmission
 #  zoomus
 #  onepassword
-  sequel-pro
 #  chromecast
 #  qlmarkdown  
 #  qlstephen
 #  suspicious-package 
 #  adguard
+#  messenger
+#  snapapi
+  bartender
+  cleanmymac
+  firefox
+  google-chrome
+  vagrant
+  iterm2
+  sequel-pro
   anaconda
   android-studio
   dbeaver-community
@@ -140,26 +128,18 @@ apps=(
   gimp
   inkscape
   krita
-#  messenger
   whatsapp
   microsoft-excel
   microsoft-powerpoint
   microsoft-word
   scribus
   sloth
-#  snapapi
   visual-studio-code
   virtualbox  
 )
-
-# Install apps to /Applications
-# Default is: /Users/$user/Applications
-echo "Installing apps with Brew Cask..."   
-
 install_casks ${apps}
 
 # brew --cask alfred link
-
 brew cleanup
 
 # https://www.chrisjmendez.com/2018/11/07/installing-jupyter-on-os-x-using-homebrew/
