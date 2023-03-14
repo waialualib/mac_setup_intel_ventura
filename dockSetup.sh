@@ -1,4 +1,5 @@
 #!/bin/zsh
+userName=`whoami`
 appsInDock=(
   "/System/Applications/Messages"
   "/System/Applications/FaceTime"
@@ -39,6 +40,8 @@ dockutil --remove all
 for appName in ${appsInDock}
 do
   # echo 'Adding item '${appName}' to Dock...'
-  dockutil --add ${appName}.app --no-restart
+  dockutil --add ${appName}.app
 done
+dockutil --add /Users/${userName}/Downloads
+
 dockutil --list
