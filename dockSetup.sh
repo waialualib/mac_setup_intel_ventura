@@ -31,7 +31,7 @@ appsInDock=(
   /Applications/Microsoft\ Word
   /System/Applications/Music
   /System/Applications/News
-  /System/Applications/System Settings
+  /System/Applications/System\ Settings
   /System/Applications/Calculator
   /System/Applications/TextEdit
   # /Applications/AdGuard
@@ -39,7 +39,7 @@ appsInDock=(
 )
 
 dockutil --remove all
-for appName in ${appsInDock} ##--
+for appName in ${appsInDock} #--no-restart
 do
   # echo 'Adding item '${appName}' to Dock...'
   dockutil --add ${appName}.app
