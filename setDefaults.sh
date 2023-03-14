@@ -50,7 +50,7 @@ defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 # /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
 defaults write NSGlobalDomain NSTextShowsControlCharacters -bool true
-defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false
+defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool true
 defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
 #defaults write com.apple.CrashReporter DialogType -string "none"
 defaults write com.apple.helpviewer DevMode -bool true
@@ -87,8 +87,10 @@ defaults write com.apple.Dock orientation -string right
 defaults write NSGlobalDomain com.apple.mouse.forceClick -bool false
 defaults write com.apple.dock "orientation" -string "right"
 defaults write com.apple.dock "tilesize" -int "36" 
-defaults write com.apple.dock "show-recents" -bool "false" 
-defaults write com.apple.dock "static-only" -bool "false"
+defaults write com.apple.dock "show-recents" -bool true
+defaults write com.apple.dock "static-only" -bool false
+defaults write com.apple.dock showhidden -bool true
+defaults write com.apple.dock mineffect suck
 killall Dock
 
 #### DOCK TODO

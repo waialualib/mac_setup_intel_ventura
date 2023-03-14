@@ -160,6 +160,9 @@ if [ ! -f ~/.pyenv/version ]; then
   echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
   echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
   echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+  echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zprofile
+  echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zprofile
+  echo 'eval "$(pyenv init -)"' >> ~/.zprofile
 else ## TODO: test if 3 is installed and set
   echo "~/.pyenv/version exists." >&2
 fi
