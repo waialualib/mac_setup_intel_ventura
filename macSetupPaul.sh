@@ -4,8 +4,8 @@ echo 'Your WAN IP Address is: '$(dig +short txt ch whoami.cloudflare @1.0.0.1)
 osascript -e 'tell application "System Preferences" to quit'
 echo 'Your password is required to run commands as root...'
 sudo -v
-### is this needed? https://github.com/kevinSuttle/macOS-Defaultswhile true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
+### is this needed? https://github.com/kevinSuttle/macOS-Defaults
+# while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 echo 'System Settings -> My Name -> iCloud -> Turn off iCloud Drive, iCloud Mail, Photos'
 echo 'Make sure Find My Mac is on'
 echo 'Make sure Passwords & Keychain is on, and others below as needed'

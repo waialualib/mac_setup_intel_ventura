@@ -17,7 +17,7 @@ read FOO
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
 
 # https://github.com/drduh/macOS-Security-and-Privacy-Guide#application-layer-firewall
-## anything interestint in here?
+## anything interesting in here?
 
 # https://www.kolide.com/blog/the-security-and-it-admin-s-guide-to-macos-ventura
 # educational
@@ -33,7 +33,6 @@ sudo scutil --set HostName ${userName}
 sudo scutil --set LocalHostName ${userName}
 #sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string home.share
 dscacheutil -flushcache
-
 
 # Disable the sound effects on boot
 #sudo nvram SystemAudioVolume=" "
@@ -92,7 +91,6 @@ defaults write com.apple.dock "show-recents" -bool "false"
 defaults write com.apple.dock "static-only" -bool "false"
 killall Dock
 
-
 #### DOCK TODO
 # defaults read com.apple.Dock
 defaults write com.apple.TextEdit "RichText" -bool "false"
@@ -139,14 +137,6 @@ defaults write com.apple.AppleMultitouchTrackpad "ForceSuppressed" -int 1
 # https://mosen.github.io/profiledocs/index.html
 # https://developer.apple.com/documentation/devicemanagement/dock
 # https://stackoverflow.com/questions/49214368/using-applescript-to-modify-settings-system-preferences
-
-
-
-
-
-###############################################################################
-# Finder                                                                      #
-###############################################################################
 
 # Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
 defaults write com.apple.finder QuitMenuItem -bool false
@@ -239,11 +229,6 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 # Disable the warning before emptying the Trash
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
-
-
-
-
-
 # Enable AirDrop over Ethernet and on unsupported Macs running Lion
 # defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 
@@ -283,4 +268,3 @@ defaults write com.apple.TextEdit NSShowAppCentricOpenPanelInsteadOfUntitledFile
 # defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop/"
 defaults write com.apple.finder NewWindowTarget -string "PfLo"
 defaults write com.apple.finder NewWindowTargetPath -string 'file://'${HOME}'/'
-

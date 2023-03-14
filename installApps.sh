@@ -51,10 +51,9 @@ appsNoCask=(
 )
 install_nocasks $appsNoCask
 
-# echo "Grunting it up"
+# echo "Install grunt for node"
 # npm install -g grunt-cli
 #@TODO install our custom fonts
-echo "Cleaning up brew"
 brew cleanup
 
 ### TODO: dotfiles
@@ -79,7 +78,7 @@ brew cleanup
 # https://proxyman.io/posts/2019-10-26-Alternatives-for-charles-proxy-and-wireshark
 
 apps=(
-#  alfred
+#  alfred # brew --cask alfred link
 #  bettertouchtool
 #  cloud
 #  colloquy  
@@ -139,10 +138,7 @@ apps=(
 )
 install_casks ${apps}
 
-# brew --cask alfred link
 brew cleanup
-
-# https://www.chrisjmendez.com/2018/11/07/installing-jupyter-on-os-x-using-homebrew/
 
 appsNoCask=(
   pyenv
@@ -157,18 +153,16 @@ if [ ! -f ~/.pyenv/version ]; then
   echo 'Setting latest Python 3 to global via pyenv.'
   pyenv global 3
   # pyenv local 3
+  # pyenv install -vf 2
+  # # pyenv local 2
+  # pyenv local 2
+  # https://github.com/pyenv/pyenv#installation
+  echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+  echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+  echo 'eval "$(pyenv init -)"' >> ~/.zshrc
 else ## TODO: test if 3 is installed and set
   echo "~/.pyenv/version exists." >&2
 fi
-
-# pyenv install -vf 2
-# # pyenv local 2
-# pyenv local 2
-
-# https://github.com/pyenv/pyenv#installation
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
-echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
-echo 'eval "$(pyenv init -)"' >> ~/.zshrc
 
 # https://www.chrisjmendez.com/2018/11/07/installing-jupyter-on-os-x-using-homebrew/
 brew install jupyterlab
