@@ -1,9 +1,27 @@
 #!/bin/zsh
+function install_casks {
+  for appName in "$@"
+  do
+    echo 'Installing cask: '"$appName"
+    brew install --cask --appdir="/Applications" "$appName"
+  done
+}
+
+function install_nocasks {
+  for appName in "$@"
+  do
+    echo 'Installing app '"$appName"' with Brew...'
+    brew install --appdir="/Applications" "$appName"
+  done
+}
+
+USER=`whoami`
+echo 'Installing apps with user: '${USER}
 
 ###################### XCode
 echo "Installing XCode Command Line Tools"
 xcode-select --install
-xcodebuild -license accept
+sudo xcodebuild -license accept
 
 echo "Checking if brew is installed..."
 which -s brew
@@ -38,7 +56,6 @@ brew install trash
 # brew install node
   
 
-USER=`whoami`
 
 #@TODO install our custom fonts and stuff
   
@@ -72,8 +89,6 @@ ${USER}/.zsh-theme
 # #cd ~/.oh-my-zsh/custom/plugins
 # #git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
 # cd ~
-
-
 
 # https://proxyman.io/posts/2019-10-26-Alternatives-for-charles-proxy-and-wireshark
 
@@ -141,11 +156,7 @@ apps=(
 # Default is: /Users/$user/Applications
 echo "Installing apps with Brew Cask..."   
 
-for appName in ${apps}
-do
-  echo 'Installing cask: '${appName}
-  brew install --cask --appdir="/Applications" ${appName}
-done
+install_casks ${apps}
 
 # brew --cask alfred link
 
@@ -158,12 +169,7 @@ appsNoCask=(
   erlang
   elixir
 )
-
-for appName in ${appsNoCask}
-do
-  echo 'Installing app '${appName}' with Brew...'
-  brew install --appdir="/Applications" ${appName}
-done
+install_nocasks {$appsNoCask}
 
 if [ ! -f ~/.pyenv/version ]; then
   echo 'Installing latest Python 3 via pyenv.'
@@ -186,15 +192,20 @@ echo 'eval "$(pyenv init -)"' >> ~/.zshrc
 
 # https://www.chrisjmendez.com/2018/11/07/installing-jupyter-on-os-x-using-homebrew/
 brew install jupyterlab
-
 brew install libgit2
-brew install r
+
+apps=(
+  r
+  rstudio
+)
+install_casks $apps
+
 echo 'Install R and link to Jupyter per: https://www.chrisjmendez.com/2018/12/04/configure-jupyter-notebook-to-work-with-r/ '
 
-brew tap homebrew/cask-fonts 
-brew install --cask font-source-code-pro
+# TODO: FONTS
+# brew tap homebrew/cask-fonts 
+# brew install --cask font-source-code-pro
 
 brew tap lotyp/homebrew-formulae
 brew install lotyp/formulae/dockutil
 dockutil --version
-
