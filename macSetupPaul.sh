@@ -6,10 +6,9 @@ echo 'Your password is required to run commands as root...'
 sudo -v
 ### is this needed? https://github.com/kevinSuttle/macOS-Defaultswhile true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-echo 'These items cannot be automated as of macOS Monterey'
-echo 'Please install XCode from the App Store now.'
-echo 'Press [Enter] to continue...'
-read FOO
+echo 'System Settings -> My Name -> iCloud -> Turn off iCloud Drive, iCloud Mail, Photos'
+echo 'Make sure Find My Mac is on'
+echo 'Make sure Passwords & Keychain is on, and others below as needed'
 echo 'System Settings -> Sharing: ALL OFF'
 echo 'System Settings -> Airdrop & Handoff -> Allow Handoff: OFF'
 echo 'System Settings -> Airdrop & Handoff -> Airdrop: No One'
@@ -20,6 +19,12 @@ echo 'Are those done?'
 echo 'Press [Enter] to continue...'
 read FOO
 
+echo 'These items cannot be automated as of macOS Monterey'
+echo 'Please install XCode from the App Store now.'
+echo 'Press [Enter] to continue...'
+read FOO
+
+echo 'Running setDefaults.sh script...'
 ./setDefaults.sh
 
 ####################### SSH
@@ -33,7 +38,10 @@ echo "https://github.com/account/ssh \n"
 echo 'Press [Enter] to continue...'
 read FOO
 
+echo 'Running installApps.sh script...'
 ./installApps.sh
+
+echo 'Running dockSetup.sh script...'
 ./dockSetup.sh
 
 #SnapAPI
@@ -53,4 +61,5 @@ mix local.hex --force
 ### https://github.com/thomaspoignant/mac-dev-setup/blob/master/src/mac-dev-setup.sh
 ### https://github.com/donnemartin/dev-setup#osxprepsh-script
 
+echo 'Running projectSetup.sh script'
 ./projectSetup.sh

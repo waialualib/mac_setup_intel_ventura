@@ -1,8 +1,7 @@
 #!/bin/zsh
 
-
 ###################### XCode
-echo "Installing XCode"
+echo "Installing XCode Command Line Tools"
 xcode-select --install
 xcodebuild -license accept
 
@@ -192,34 +191,8 @@ brew install libgit2
 brew install r
 echo 'Install R and link to Jupyter per: https://www.chrisjmendez.com/2018/12/04/configure-jupyter-notebook-to-work-with-r/ '
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 brew tap homebrew/cask-fonts 
 brew install --cask font-source-code-pro
-
-
-
-
-
-
-
-
-
 
 brew tap lotyp/homebrew-formulae
 brew install lotyp/formulae/dockutil
