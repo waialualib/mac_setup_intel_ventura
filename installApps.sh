@@ -115,6 +115,7 @@ apps=(
   bartender
   cleanmymac
   firefox
+  microsoft-edge
   google-chrome
   vagrant
   iterm2

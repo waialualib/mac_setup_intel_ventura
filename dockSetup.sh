@@ -9,6 +9,7 @@ appsInDock=(
   /System/Applications/App\ Store
   /System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari
   /Applications/Firefox
+  /Applications/Microsoft\ Edge
   /Applications/Google\ Chrome
   # /Applications/Anaconda-Navigator
   /Applications/VirtualBox
