@@ -112,6 +112,7 @@ apps=(
 #  adguard
 #  messenger
 #  snapapi
+  hugo
   bartender
   cleanmymac
   firefox
