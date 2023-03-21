@@ -12,6 +12,7 @@ appsInDock=(
   /Applications/Microsoft\ Edge
   /Applications/Google\ Chrome
   # /Applications/Anaconda-Navigator
+  /Applications/Wireshark
   /Applications/VirtualBox
   /System/Applications/Utilities/Terminal
   /Applications/iTerm

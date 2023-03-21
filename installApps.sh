@@ -137,6 +137,7 @@ apps=(
   sloth
   visual-studio-code
   virtualbox  
+  wireshark
 )
 install_casks ${apps}
 
