@@ -33,6 +33,7 @@ if [[ $? != 0 ]] ; then
 fi
 echo "Updating brew..."
 brew update
+brew analytics off
 
 echo "Installing Git..."
 brew install git
@@ -46,6 +47,7 @@ appsNoCask=(
   # git-flow
   tree
   wget
+  gnupg
   # trash
   # node
 )
