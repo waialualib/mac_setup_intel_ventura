@@ -50,6 +50,7 @@ appsNoCask=(
   gnupg
   # trash
   # node
+  yt-dlp
 )
 install_nocasks $appsNoCask
 
