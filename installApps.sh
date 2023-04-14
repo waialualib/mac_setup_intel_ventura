@@ -54,6 +54,8 @@ appsNoCask=(
 )
 install_nocasks $appsNoCask
 
+./setupYTDLP.sh
+
 # echo "Install grunt for node"
 # npm install -g grunt-cli
 #@TODO install our custom fonts
