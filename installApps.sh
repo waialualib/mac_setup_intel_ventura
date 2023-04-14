@@ -51,6 +51,7 @@ appsNoCask=(
   # trash
   # node
   yt-dlp
+  hugo
 )
 install_nocasks $appsNoCask
 
@@ -117,7 +118,6 @@ apps=(
 #  adguard
 #  messenger
 #  snapapi
-  hugo
   bartender
   cleanmymac
   firefox
