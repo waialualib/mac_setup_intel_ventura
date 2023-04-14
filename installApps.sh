@@ -50,6 +50,7 @@ appsNoCask=(
   gnupg
   # trash
   # node
+  ffmpeg
   yt-dlp
   hugo
 )
