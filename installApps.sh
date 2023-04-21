@@ -145,7 +145,7 @@ apps=(
   virtualbox  
   wireshark
 )
-install_casks ${apps}
+install_casks $apps
 
 brew cleanup
 
@@ -153,8 +153,13 @@ appsNoCask=(
   pyenv
   erlang
   elixir
+  postgresql@15
 )
-install_nocasks {$appsNoCask}
+install_nocasks $appsNoCask
+
+#Install Phoenix and Postgresql
+mix local.hex
+mix archive.install hex phx_new
 
 if [ ! -f ~/.pyenv/version ]; then
   echo 'Installing latest Python 3 via pyenv.'
