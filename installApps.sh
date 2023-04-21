@@ -157,9 +157,16 @@ appsNoCask=(
 )
 install_nocasks $appsNoCask
 
+echo 'Adding postgresql@15 to path.'
+echo 'export PATH="/usr/local/opt/postgresql@15/bin:$PATH"' >> ~/.zshrc
+
+echo 'Adding postgresql@15 to startup.'
+brew services start postgresql@15
+
 # Install Phoenix web framework
-mix local.hex
-mix archive.install hex phx_new
+echo 'Installing Mix and Phoenix web framework.'
+mix local.hex --force
+mix archive.install --force hex phx_new
 
 if [ ! -f ~/.pyenv/version ]; then
   echo 'Installing latest Python 3 via pyenv.'
