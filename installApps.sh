@@ -157,7 +157,7 @@ appsNoCask=(
 )
 install_nocasks $appsNoCask
 
-#Install Phoenix and Postgresql
+# Install Phoenix web framework
 mix local.hex
 mix archive.install hex phx_new
 
