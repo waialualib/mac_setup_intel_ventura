@@ -144,6 +144,7 @@ apps=(
   visual-studio-code
   virtualbox  
   wireshark
+  mactex
 )
 install_casks $apps
 
