@@ -35,6 +35,10 @@ echo "Updating brew..."
 brew update
 brew analytics off
 
+(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/${USER}/.zpro
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+
 echo "Installing Git..."
 brew install git
 echo "Git config"
@@ -162,7 +166,7 @@ appsNoCask=(
 install_nocasks $appsNoCask
 
 echo 'Adding postgresql@15 to path.'
-echo 'export PATH="/usr/local/opt/postgresql@15/bin:$PATH"' >> ~/.zshrc
+echo 'export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"' >> ~/.zshrc
 
 echo 'Adding postgresql@15 to startup.'
 brew services start postgresql@15
