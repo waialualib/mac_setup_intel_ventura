@@ -71,7 +71,7 @@ defaults write NSGlobalDomain KeyRepeat -int 1
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
 # https://git.herrbischoff.com/awesome-macos-command-line/about/
-sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "Welcome to your MBP"
+sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "Welcome to your M2 MBP"
 
 # https://www.defaults-write.com/os-x-display-additional-information-on-the-loginscreen/#more-939
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
