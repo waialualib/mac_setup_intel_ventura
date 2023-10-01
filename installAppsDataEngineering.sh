@@ -38,8 +38,7 @@ appsNoCask=(
   terraform
   tableau
   kubernetes-cli
-  minikube	
-  metabase
+  minikube
   nginx
 )
 install_nocasks $appsNoCask
@@ -51,6 +50,7 @@ install_nocasks $appsNoCask
 
 apps=(
   docker
+  metabase
   slack
   #mactex
 )
@@ -131,3 +131,14 @@ brew cleanup
 
 echo 'Installing dbt-postgres using pip...'
 pip install dbt-postgres
+
+
+### METABASE:
+## https://github.com/kfprimm/Metabase/blob/master/docs/operations-guide/running-the-metabase-mac-app.md
+## https://github.com/kfprimm/Metabase/blob/master/docs/setting-up-metabase.md
+
+
+### AWS CLI on M2:
+## https://medium.com/@Rohit_Varma/effortless-installation-installing-aws-cli-on-mac-m2-made-easy-cbd18ebdc575
+
+

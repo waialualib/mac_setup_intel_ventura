@@ -21,6 +21,7 @@ appsInDock=(
   /Applications/Android\ Studio
   /Applications/Tableau\ Desktop\ 2023.2
   /Applications/Docker
+  /Applications/Metabase
   /Applications/R
   /Applications/RStudio
   /Applications/DBeaver
