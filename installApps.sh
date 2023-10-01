@@ -127,7 +127,7 @@ apps=(
 #  messenger
 #  snapapi
   bartender
-  # cleanmymac
+  #cleanmymac
   firefox
   microsoft-edge
   google-chrome
@@ -198,6 +198,17 @@ if [ ! -f ~/.pyenv/version ]; then
 else ## TODO: test if 3 is installed and set
   echo "~/.pyenv/version exists." >&2
 fi
+
+## PYENV docs
+## https://realpython.com/intro-to-pyenv/
+
+
+echo 'Installing virtualenv for pyenv...'
+brew install pyenv-virtualenv
+
+echo 'Enabling auto-activation of pyenv virtualenv...'
+echo 'if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi' >> ~/.zshrc
+
 
 # https://www.chrisjmendez.com/2018/11/07/installing-jupyter-on-os-x-using-homebrew/
 brew install jupyterlab

@@ -19,10 +19,20 @@ function install_nocasks {
 }
 
 USER=`whoami`
+
+echo 'Installing rust...'
+brew install rustup
+rustup-init
+source . ~/.zshrc
+rustc --version
+
+
 echo 'Installing Data Engineering apps with user: '${USER}
 
+echo 'Tapping cask for dbt...'
+brew tap dbt-labs/dbt
+
 appsNoCask=(
-  docker
   helm
   awscli
   terraform
@@ -31,7 +41,6 @@ appsNoCask=(
   minikube	
   metabase
   nginx
-  dbt-postgres
 )
 install_nocasks $appsNoCask
 
@@ -41,6 +50,7 @@ install_nocasks $appsNoCask
 #  /opt/homebrew/opt/metabase/bin/metabase
 
 apps=(
+  docker
   slack
   #mactex
 )
@@ -106,3 +116,18 @@ brew cleanup
 #### Architect needs to know all four, plus the business role
 
 
+
+
+#### DBT brew vs pip?
+## https://interworks.com/blog/2022/10/12/installing-dbt-with-mac-m1-chips/
+## https://docs.getdbt.com/docs/core/homebrew-install
+## https://docs.getdbt.com/docs/core/pip-install
+
+### TODO: set up pyenv/venv for dbt correctly
+### https://realpython.com/intro-to-pyenv/
+#pyenv virtualenv 3.11.5 dbt-env
+#pyenv local dbt-env
+### https://discourse.getdbt.com/t/using-pyenv-to-run-multiple-versions-of-dbt-per-project/437
+
+echo 'Installing dbt-postgres using pip...'
+pip install dbt-postgres

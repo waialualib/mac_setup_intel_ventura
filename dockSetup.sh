@@ -20,6 +20,7 @@ appsInDock=(
   /Applications/Visual\ Studio\ Code
   /Applications/Android\ Studio
   /Applications/Tableau\ Desktop\ 2023.2
+  /Applications/Docker
   /Applications/R
   /Applications/RStudio
   /Applications/DBeaver
