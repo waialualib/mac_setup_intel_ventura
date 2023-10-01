@@ -19,6 +19,7 @@ appsInDock=(
   /Applications/XCode
   /Applications/Visual\ Studio\ Code
   /Applications/Android\ Studio
+  /Applications/Tableau\ Desktop\ 2023.2
   /Applications/R
   /Applications/RStudio
   /Applications/DBeaver

@@ -127,7 +127,7 @@ apps=(
 #  messenger
 #  snapapi
   bartender
-  cleanmymac
+  # cleanmymac
   firefox
   microsoft-edge
   google-chrome
