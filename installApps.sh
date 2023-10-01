@@ -142,9 +142,9 @@ apps=(
   scribus
   sloth
   visual-studio-code
-  virtualbox  
+  #virtualbox  
   wireshark
-  mactex
+  #mactex
 )
 install_casks $apps
 
