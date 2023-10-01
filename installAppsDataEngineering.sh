@@ -28,6 +28,7 @@ appsNoCask=(
   terraform
   tableau
   kubernetes-cli
+  minikube
   metabase
   nginx
   dbt-postgres
@@ -57,7 +58,7 @@ brew cleanup
 ### Terraform
 ### Tableau
 ### kube-ctl
-
+### minikube
 
 #### metabase
 #### nginx
