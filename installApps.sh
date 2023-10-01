@@ -41,6 +41,9 @@ echo "Git config"
 git config --global user.name "Home Dev"
 git config --global user.email nshkrdotcom@nshkr.com
 
+echo "Installing Rosetta 2 for x86 compatibility..."
+sudo softwareupdate --install-rosetta
+
 appsNoCask=(
   # git-extras
   # legit
