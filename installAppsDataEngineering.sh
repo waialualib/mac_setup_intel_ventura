@@ -35,6 +35,11 @@ appsNoCask=(
 )
 install_nocasks $appsNoCask
 
+#To start metabase now and restart at startup:
+#  sudo brew services start metabase
+#Or, if you don't want/need a background service you can just run:
+#  /opt/homebrew/opt/metabase/bin/metabase
+
 apps=(
   slack
   #mactex
