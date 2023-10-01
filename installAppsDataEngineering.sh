@@ -141,4 +141,5 @@ pip install dbt-postgres
 ### AWS CLI on M2:
 ## https://medium.com/@Rohit_Varma/effortless-installation-installing-aws-cli-on-mac-m2-made-easy-cbd18ebdc575
 
-
+### Terraform getting started:
+## https://tecadmin.net/how-to-install-terraform-on-macos/
