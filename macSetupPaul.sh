@@ -41,6 +41,9 @@ read FOO
 echo 'Running installApps.sh script...'
 ./installApps.sh
 
+echo 'Running installAppsDataEngineering.sh script...'
+./installAppsDataEngineering.sh
+
 echo 'Running dockSetup.sh script...'
 ./dockSetup.sh
 
