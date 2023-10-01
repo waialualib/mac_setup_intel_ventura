@@ -270,3 +270,8 @@ defaults write com.apple.TextEdit NSShowAppCentricOpenPanelInsteadOfUntitledFile
 # defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop/"
 defaults write com.apple.finder NewWindowTarget -string "PfLo"
 defaults write com.apple.finder NewWindowTargetPath -string 'file://'${HOME}'/'
+
+
+
+### Check out Conner's answer for using touch ID with terminal:
+h# ttps://apple.stackexchange.com/questions/259093/can-touch-id-on-mac-authenticate-sudo-in-terminal
