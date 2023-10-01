@@ -171,6 +171,9 @@ echo 'export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"' >> ~/.zshrc
 echo 'Adding postgresql@15 to startup.'
 brew services start postgresql@15
 
+echo 'Creating postgres superuser "postgres".'
+createuser -s postgres
+
 # Install Phoenix web framework
 echo 'Installing Mix and Phoenix web framework.'
 mix local.hex --force
