@@ -28,7 +28,7 @@ appsNoCask=(
   terraform
   tableau
   kubernetes-cli
-  minikube
+  minikube	
   metabase
   nginx
   dbt-postgres
@@ -87,3 +87,17 @@ brew cleanup
 
 ### key: DBT is the main one - the GOAT, Elementary is a package on DBT, mage
 ### snowflake / databricks most valuable to integrate
+
+
+
+#### Data Science
+#### Data Engineering
+#### Data Analyst
+#### Data Architect
+
+
+#### Engineer <-> Analysis
+#### Scientist (high level) has to know both engineering and analysis
+#### Architect needs to know all four, plus the business role
+
+
