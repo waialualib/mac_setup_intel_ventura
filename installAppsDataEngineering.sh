@@ -130,6 +130,7 @@ brew cleanup
 ### https://discourse.getdbt.com/t/using-pyenv-to-run-multiple-versions-of-dbt-per-project/437
 
 echo 'Installing dbt-postgres using pip...'
+echo 'TODO: pyenv virtualenv 3.11.5 dakine, set env'
 pip install dbt-postgres
 
 
@@ -143,3 +144,10 @@ pip install dbt-postgres
 
 ### Terraform getting started:
 ## https://tecadmin.net/how-to-install-terraform-on-macos/
+
+
+### AIRFLOW
+
+echo 'Installing apache-airflow using pip...'
+echo 'TODO: pyenv virtualenv 3.11.5 dakine, set env'
+pip install apache-airflow
