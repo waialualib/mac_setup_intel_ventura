@@ -73,13 +73,20 @@ brew cleanup
 
 # https://proxyman.io/posts/2019-10-26-Alternatives-for-charles-proxy-and-wireshark
 
+echo 'Running installAppsDesktop.sh script...'
 ./installAppsDesktop.sh
 
+echo 'Running installAppsPython.sh script...'
 ./installAppsPython.sh
 
+echo 'Running installAppsPostgres.sh script...'
 ./installAppsPostgres.sh
 
+echo 'Running installAppsRJupyter.sh script...'
 ./installAppsRJupyer.sh
+
+echo 'Running installAppsDataEngineering.sh script...'
+./installAppsDataEngineering.sh
 
 # TODO: FONTS
 # brew tap homebrew/cask-fonts 
