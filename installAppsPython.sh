@@ -1,4 +1,10 @@
 #!/bin/zsh
+source ./_functions.sh
+
+appsNoCask=(
+  pyenv
+)
+install_nocasks $appsNoCask
 
 if [ ! -f ~/.pyenv/version ]; then
   echo 'Installing latest Python 3 via pyenv.'

@@ -139,29 +139,9 @@ install_casks $apps
 
 brew cleanup
 
-appsNoCask=(
-  pyenv
-  erlang
-  elixir
-  postgresql@15
-)
-install_nocasks $appsNoCask
-
-echo 'Adding postgresql@15 to path.'
-echo 'export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"' >> ~/.zshrc
-
-echo 'Adding postgresql@15 to startup.'
-brew services start postgresql@15
-
-echo 'Creating postgres superuser "postgres".'
-createuser -s postgres
-
-# Install Phoenix web framework
-echo 'Installing Mix and Phoenix web framework.'
-mix local.hex --force
-mix archive.install --force hex phx_new
-
 ./installAppsPython.sh
+
+./installAppsPostgres.sh
 
 # https://www.chrisjmendez.com/2018/11/07/installing-jupyter-on-os-x-using-homebrew/
 brew install jupyterlab
