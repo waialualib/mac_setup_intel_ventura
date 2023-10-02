@@ -8,6 +8,10 @@ sudo xcode-select --install
 sudo xcodebuild -license accept
 sudo xcodebuild -downloadPlatform iOS
 
+sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+sudo xcodebuild -runFirstLaunch
+sudo gem install cocoapods
+
 
 echo "Checking if brew is installed..."
 which -s brew
