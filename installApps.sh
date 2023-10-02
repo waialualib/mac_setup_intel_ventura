@@ -4,8 +4,10 @@ source ./_functions.sh
 echo 'Installing apps with user: '${USER}
 
 echo "Installing XCode Command Line Tools"
-xcode-select --install
+sudo xcode-select --install
 sudo xcodebuild -license accept
+sudo xcodebuild -downloadPlatform iOS
+
 
 echo "Checking if brew is installed..."
 which -s brew
@@ -81,6 +83,9 @@ echo 'Running installAppsPython.sh script...'
 
 echo 'Running installAppsPostgres.sh script...'
 ./installAppsPostgres.sh
+
+echo 'Running installAppsDartFlutter.sh script...'
+./installAppsDartFlutter.sh
 
 echo 'Running installAppsRJupyter.sh script...'
 ./installAppsRJupyer.sh
