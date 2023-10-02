@@ -14,8 +14,11 @@ sudo xcodebuild -runFirstLaunch
 
 echo 'XCode now configured, installing ruby and cocoapods..'
 # https://rvm.io/rvm/install
+\curl -sSL https://rvm.io/mpapis.asc | gpg --import -
+\curl -sSL https://rvm.io/pkuczynski.asc | gpg --import -
 \curl -sSL https://get.rvm.io | bash  -s stable --ruby
 source /Users/${USER}/.rvm/scripts/rvm
+## https://stackoverflow.com/questions/75589447/how-to-fix-the-running-rvm-make-j4-error-while-installing-ruby-3-2-1-us
 rvm install ruby --latest
 sudo gem install cocoapods
 
