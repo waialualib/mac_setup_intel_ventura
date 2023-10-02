@@ -57,8 +57,8 @@ echo 'Running dockSetup.sh script...'
 #  node??
 # yarn
 
-echo 'Installing Phoenix Web Framework...'
-mix local.hex --force
+# echo 'Installing Phoenix Web Framework...'
+# mix local.hex --force
 
 ### TODO: more stuff
 ### https://github.com/thomaspoignant/mac-dev-setup/blob/master/src/mac-dev-setup.sh
