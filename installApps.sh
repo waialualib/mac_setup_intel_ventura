@@ -10,8 +10,14 @@ sudo xcodebuild -downloadPlatform iOS
 
 sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
 sudo xcodebuild -runFirstLaunch
-sudo gem install cocoapods
 
+
+echo 'XCode now configured, installing ruby and cocoapods..'
+# https://rvm.io/rvm/install
+\curl -sSL https://get.rvm.io | bash  -s stable --ruby
+source /Users/${USER}/.rvm/scripts/rvm
+rvm install ruby --latest
+sudo gem install cocoapods
 
 echo "Checking if brew is installed..."
 which -s brew
