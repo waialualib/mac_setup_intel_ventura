@@ -19,7 +19,11 @@ echo 'XCode now configured, installing ruby and cocoapods..'
 \curl -sSL https://get.rvm.io | bash  -s stable --ruby
 source /Users/${USER}/.rvm/scripts/rvm
 ## https://stackoverflow.com/questions/75589447/how-to-fix-the-running-rvm-make-j4-error-while-installing-ruby-3-2-1-us
-rvm install ruby --latest
+
+## To get the path to installed openssl:
+# which openssl
+# > /opt/homebrew/bin/openssl 
+rvm install ruby --latest -C --with-openssl-dir=/opt/homebrew/bin/openssl
 sudo gem install cocoapods
 
 echo "Checking if brew is installed..."
