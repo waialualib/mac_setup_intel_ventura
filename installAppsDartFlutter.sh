@@ -24,5 +24,5 @@ echo 'export PATH="$PATH:$USER/fvm/default/bin"' >> ~/.zshrc
 
 source ~/.zshrc
 
-
+dart --disable-analytics
 code --install-extension Dart-Code.flutter
