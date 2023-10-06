@@ -26,3 +26,5 @@ source ~/.zshrc
 
 dart --disable-analytics
 code --install-extension Dart-Code.flutter
+code --disable-telemetry
+
